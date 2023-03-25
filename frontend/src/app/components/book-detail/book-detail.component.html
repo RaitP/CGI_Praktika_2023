@@ -1,1 +1,11 @@
-<pre>{{book$ | async | json}}</pre>
+<mat-nav-list *ngIf="(book$ | async) as book">
+  <p> Title: {{ book.title }}</p>
+  <p> Author: {{ book.author }}</p>
+  <p> Genre: {{ book.genre }}</p>
+  <p> Year: {{ book.year }}</p>
+  <p> Added: {{ book.added }}</p>
+  <p> Check out counts: {{ book.checkOutCount }}</p>
+  <p> Status: {{ book.status }}</p>
+  <p> Due date: {{ book.dueDate }}</p>
+  <p> Comments: {{ book.comment }}</p>
+</mat-nav-list>

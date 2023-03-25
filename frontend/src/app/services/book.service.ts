@@ -5,6 +5,7 @@ import { Book } from '../models/book';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RestUtil } from './rest-util';
+import {Checkout} from "../models/checkout";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { RestUtil } from './rest-util';
 export class BookService {
 
   private readonly baseUrl = environment.backendUrl + '/api/book';
+  private readonly checkUrl = environment.backendUrl + '/api/checkout';
 
   constructor(
     private http: HttpClient,
@@ -28,6 +30,18 @@ export class BookService {
     const url = this.baseUrl + '/getBook';
     const params = new HttpParams().set('bookId', bookId);
     return this.http.get<Book>(url, {params});
+  }
+
+  getCheckouts(filter: Partial<PageRequest>): Observable<Page<Checkout>> {
+    const url = this.checkUrl + '/getCheckouts';
+    const params = RestUtil.buildParamsFromPageRequest(filter);
+    return this.http.get<Page<Checkout>>(url, {params});
+  }
+
+  getCheckout(checkoutId: string): Observable<Checkout> {
+    const url = this.checkUrl + '/getCheckout';
+    const params = new HttpParams().set('checkOutId', checkoutId);
+    return this.http.get<Checkout>(url, {params});
   }
 
   saveBook(book: Book): Observable<void> {

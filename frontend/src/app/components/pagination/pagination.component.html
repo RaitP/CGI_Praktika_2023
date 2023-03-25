@@ -1,0 +1,26 @@
+<!--<pagination-->
+<!--  [currentPage]="currentPage"-->
+<!--  [limit]="limit"-->
+<!--  [size]="size"-->
+<!--  (changePage)="changePage($event)">-->
+<!--</pagination>-->
+<div class="pagination_section">
+  <button (click)="changePage(-1)"><< Previous</button>
+  <p>{{currentPage}}</p>
+  <button (click)="changePage(1)">Next >></button>
+  <div class="dropdown">
+    <button class="dropbtn">{{itemsOnPage}}</button>
+    <div class="dropdown-content">
+      <button (click)="changeItems(5)">5</button>
+      <button (click)="changeItems(10)">10</button>
+      <button (click)="changeItems(20)">20</button>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Sort</button>
+    <div class="dropdown-content">
+      <button>ASC</button>
+      <button>DESC</button>
+    </div>
+  </div>
+</div>

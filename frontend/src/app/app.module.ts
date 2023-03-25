@@ -8,20 +8,28 @@ import { MaterialModule } from './material/material.module';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CheckoutsListComponent } from './components/checkouts-list/checkouts-list.component';
+import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
+import {FormsModule} from "@angular/forms";
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksListComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    CheckoutsListComponent,
+    CheckoutDetailComponent,
+    PaginationComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
