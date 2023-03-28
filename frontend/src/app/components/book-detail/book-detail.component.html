@@ -1,11 +1,51 @@
-<mat-nav-list *ngIf="(book$ | async) as book">
-  <p> Title: {{ book.title }}</p>
-  <p> Author: {{ book.author }}</p>
-  <p> Genre: {{ book.genre }}</p>
-  <p> Year: {{ book.year }}</p>
-  <p> Added: {{ book.added }}</p>
-  <p> Check out counts: {{ book.checkOutCount }}</p>
-  <p> Status: {{ book.status }}</p>
-  <p> Due date: {{ book.dueDate }}</p>
-  <p> Comments: {{ book.comment }}</p>
-</mat-nav-list>
+<!--<form class="book-info" *ngIf="(book$ | async) as book">-->
+<form class="book-info" (ngSubmit)="changeInfo()">
+  <div class="input-info">
+    <label for="title">Title </label>
+    <input name="title" type="text" id="title" [(ngModel)]="title" placeholder="Add title"/>
+  </div>
+
+  <div class="input-info">
+    <label for="author">Author </label>
+    <input name="author" type="text" id="author" [(ngModel)]="author" placeholder="Add author"/>
+  </div>
+
+  <div class="input-info">
+  <label for="genre">Genre </label>
+  <input name="genre" type="text" id="genre" [(ngModel)]="genre" placeholder="Add genre"/>
+  </div>
+
+  <div class="input-info">
+    <label for="year">Year </label>
+    <input name="year" type="number" id="year" [(ngModel)]="year" placeholder="Add year"/>
+  </div>
+
+  <div class="input-info">
+    <label for="added">Added </label>
+    <input name="added" type="text" id="added" [(ngModel)]="added" placeholder="Add added"/>
+  </div>
+
+  <div class="input-info">
+    <label for="checkOutCount">Check out count </label>
+    <input name="checkOutCount" type="number" id="checkOutCount" [(ngModel)]="checkOutCount" placeholder="Add check out count"/>
+  </div>
+
+  <div class="input-info">
+    <label for="status">Status </label>
+    <input name="status" type="BookStatus" id="status" [(ngModel)]="status" placeholder="Add status"/>
+  </div>
+
+  <div class="input-info">
+  <label for="dueDate">due date </label>
+  <input name="dueDate" type="text" id="dueDate" [(ngModel)]="dueDate" placeholder="Add due date"/>
+  </div>
+
+  <div class="input-info">
+    <label for="comment">Comment </label>
+    <input name="comment" type="text" id="comment" [(ngModel)]="comment" placeholder="Add comment"/>
+  </div>
+  <button>Update</button>
+<!--  <button [routerLink]="['/booking', id]" >Book</button>-->
+  <app-button [routerLink]="['/booking', id]" (buttonClick)="borrow()" text="Book"></app-button>
+</form>
+

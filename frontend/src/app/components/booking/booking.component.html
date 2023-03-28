@@ -1,0 +1,30 @@
+<form class="book-info" (ngSubmit)="bookBook()">
+  <div class="input-info">
+    <label for="borrowerFirstName">First name </label>
+    <input name="borrowerFirstName" type="text" id="borrowerFirstName" [(ngModel)]="borrowerFirstName"
+           placeholder="Add first name"/>
+  </div>
+
+  <div class="input-info">
+    <label for="borrowerLastName">Author </label>
+    <input name="borrowerLastName" type="text" id="borrowerLastName" [(ngModel)]="borrowerLastName"
+           placeholder="Add Last name"/>
+  </div>
+
+  <div class="input-info">
+    <label for="checkedOutDate">Check out date </label>
+    <input name="checkedOutDate" type="text" id="checkedOutDate" [(ngModel)]="checkedOutDate"
+           placeholder="Add check out date"/>
+  </div>
+
+  <div class="input-info">
+    <label for="dueDate">Due date </label>
+    <input name="dueDate" type="text" id="dueDate" [(ngModel)]="dueDate" placeholder="Add due date"/>
+  </div>
+
+  <div class="input-info">
+    <label for="returnedDate">Return date </label>
+    <input name="returnedDate" type="text" id="returnedDate" [(ngModel)]="returnedDate" placeholder="Add return Date"/>
+  </div>
+  <button>Book</button>
+</form>

@@ -1,5 +1,4 @@
 <mat-nav-list *ngIf="(checkout$ | async) as checkout">
-  <p> ID: {{ checkout.id }}</p>
   <p> First name: {{ checkout.borrowerFirstName }}</p>
   <p> Last name: {{ checkout.borrowerLastName }}</p>
   <p> Book: {{ checkout.borrowedBook.title}}</p>

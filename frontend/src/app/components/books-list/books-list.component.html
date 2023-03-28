@@ -1,11 +1,15 @@
 <div class="container mat-elevation-z4">
   <mat-card>
     <mat-card-title>Books</mat-card-title>
+    <a [routerLink]="['/']">Create</a>
     <mat-card-content>
       <mat-nav-list *ngIf="(books$ | async) as books">
-        <a mat-list-item *ngFor="let book of books.content" [routerLink]="['/books', book.id]">
-          {{book.title}}
-        </a>
+        <div *ngFor="let book of books.content">
+          <app-button color="red" text="Delete" (buttonClick)="deleteBook(book.id)"></app-button>
+          <a [routerLink]="['/books', book.id]">
+            {{book.title}}
+          </a>
+        </div>
       </mat-nav-list>
     </mat-card-content>
   </mat-card>

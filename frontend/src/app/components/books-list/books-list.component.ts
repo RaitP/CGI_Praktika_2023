@@ -12,8 +12,6 @@ import { Book } from '../../models/book';
 export class BooksListComponent implements OnInit {
 
   books$!: Observable<Page<Book>>;
-  currentPage: number = 1;
-  itemsOnPage: number = 10;
   information: PageRequest = {
     pageIndex: 1,
     pageSize: 10
@@ -24,15 +22,21 @@ export class BooksListComponent implements OnInit {
   ) {
   }
 
-  changePage(filters: PageRequest){
-    this.information = filters;
+  changePage(pagerequest: PageRequest){
+    this.information = pagerequest;
+    this.ngOnInit();
+  }
+
+  deleteBook(id: string) {
+    this.bookService.deleteBook(id).subscribe();
     this.ngOnInit();
   }
 
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
     this.books$ = this.bookService.getBooks(this.information);
-    //this.books$ = this.bookService.getBooks({});
+    console.log("jookseb")
+    //this.books$ = this.bookService.getBooks({pageIndex:2, pageSize:10, direction:"desc"});
 
   }
 

@@ -12,6 +12,8 @@ import { CheckoutsListComponent } from './components/checkouts-list/checkouts-li
 import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
 import {FormsModule} from "@angular/forms";
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ButtonComponent } from './components/button/button.component';
+import { BookingComponent } from './components/booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BookDetailComponent,
     CheckoutsListComponent,
     CheckoutDetailComponent,
-    PaginationComponent
+    PaginationComponent,
+    ButtonComponent,
+    BookingComponent
   ],
     imports: [
         BrowserModule,

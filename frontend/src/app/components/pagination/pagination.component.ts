@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {PageRequest, SortDirection} from "../../models/page";
+import {PageRequest} from "../../models/page";
 
 @Component({
   selector: 'app-pagination',

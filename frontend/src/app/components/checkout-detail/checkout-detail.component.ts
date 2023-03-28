@@ -4,6 +4,8 @@ import { Checkout } from '../../models/checkout';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
+import {BookStatus} from "../../models/book-status";
+import {Book} from "../../models/book";
 @Component({
   selector: 'app-checkout-detail',
   templateUrl: './checkout-detail.component.html',
@@ -11,6 +13,14 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class CheckoutDetailComponent implements OnInit{
   checkout$!: Observable<Checkout>;
+
+  id: string = "";
+  borrowerFirstName: string = "";
+  borrowerLastName: string = "";
+  borrowedBook: Book | undefined;
+  checkedOutDate: string = "";
+  dueDate: string = "";
+  returnedDate: string = "";
 
 
   constructor(
@@ -23,7 +33,10 @@ export class CheckoutDetailComponent implements OnInit{
     this.checkout$ = this.route.params
       .pipe(map(params => params['id']))
       .pipe(switchMap(id => this.bookService.getCheckout(id)))
-    console.log(this.checkout$)
-  }
+    this.checkout$.subscribe(
+      (res) => {
 
+      }
+    )
+  }
 }
